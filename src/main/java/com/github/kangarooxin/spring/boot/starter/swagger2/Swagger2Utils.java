@@ -22,7 +22,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * @author pangxin01822
+ * @author kangarooxin
  */
 public class Swagger2Utils {
 

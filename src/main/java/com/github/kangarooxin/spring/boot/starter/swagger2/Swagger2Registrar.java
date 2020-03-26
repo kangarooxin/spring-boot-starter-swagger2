@@ -13,10 +13,8 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.util.StringUtils;
 
-import java.lang.reflect.Method;
-
 /**
- * @author pangxin01822
+ * @author kangarooxin
  */
 public class Swagger2Registrar implements ImportBeanDefinitionRegistrar, EnvironmentAware, ResourceLoaderAware {
 

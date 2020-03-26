@@ -1,7 +1,7 @@
 package com.github.kangarooxin.spring.boot.starter.swagger2;
 
 /**
- * @author pangxin01822
+ * @author kangarooxin
  */
 public class Constants {
 
