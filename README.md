@@ -3,7 +3,13 @@
 swagger2 spring boot starter
 
 ## Usage:
-1. import dependency in pom.xml
+1. build and install jar
+```
+git clone https://github.com/kangarooxin/spring-boot-starter-swagger2.git
+cd spring-boot-starter-swagger2
+mvc clean install
+```
+2. import dependency in pom.xml
 ```
 <dependency>
     <groupId>com.github.kangarooxin</groupId>
@@ -11,7 +17,7 @@ swagger2 spring boot starter
     <version>1.0.0</version>
 </dependency>
 ```
-2. config in properties
+3. config in properties
 ```
    #swagger2
    #swagger2.enabled=true
@@ -33,7 +39,7 @@ swagger2 spring boot starter
    swagger2.global-parameters[1].required=false
    swagger2.global-parameters[1].model-ref=string
 ```
-3. Support multiple group
+4. Support multiple group
 ```
    #declare multiple group
    swagger2.groups=group1,group2
@@ -48,3 +54,4 @@ swagger2 spring boot starter
    swagger2.group2.version=1.0.0
    swagger2.group2.base-package=com.example.controller.group2
 ```
+
