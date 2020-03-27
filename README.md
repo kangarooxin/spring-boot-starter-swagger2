@@ -54,7 +54,8 @@ mvc clean install
    swagger2.group2.version=1.0.0
    swagger2.group2.base-package=com.example.controller.group2
 ```
-5. Swagger2常用注解 @Api() 用于类； 表示标识这个类是swagger的资源
+5. Swagger2常用注解
+   - @Api() 用于类； 表示标识这个类是swagger的资源
    - @ApiOperation() 用于方法； 表示一个http请求的操作 @ApiParam()
    用于方法，参数，字段说明；表示对参数的添加元数据（说明或是否必填等）
    - @ApiModel() 用于类 表示对类进行说明，用于参数用实体类接收
