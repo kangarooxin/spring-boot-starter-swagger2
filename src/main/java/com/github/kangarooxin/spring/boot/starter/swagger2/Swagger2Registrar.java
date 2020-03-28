@@ -13,6 +13,8 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.util.StringUtils;
 
+import java.util.Map;
+
 /**
  * @author kangarooxin
  */
@@ -27,18 +29,20 @@ public class Swagger2Registrar implements ImportBeanDefinitionRegistrar, Environ
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
         this.registry = registry;
+        String groupName;
         Swagger2Properties groupProperties;
         Swagger2Properties properties = getProperties(Constants.SWAGGER2_PREFIX, Swagger2Properties.class);
         if(properties != null && properties.getGroups() != null) {
-            for (String group : properties.getGroups()) {
-                groupProperties = getProperties(Constants.SWAGGER2_PREFIX + "." + group, Swagger2Properties.class);
-                if(groupProperties == null) {
+            for (Map.Entry<String, Swagger2Properties> entry : properties.getGroups().entrySet()) {
+                groupName = entry.getKey();
+                groupProperties = entry.getValue();
+                if(StringUtils.isEmpty(groupProperties.getBasePackage())) {
                     continue;
                 }
                 if (StringUtils.isEmpty(groupProperties.getGroupName())) {
-                    groupProperties.setGroupName(group);
+                    groupProperties.setGroupName(groupName);
                 }
-                registerBean(group + "Docket", Swagger2DocketFactoryBean.class, groupProperties);
+                registerBean(groupName + "Docket", Swagger2DocketFactoryBean.class, groupProperties);
             }
         }
     }

@@ -3,7 +3,10 @@ package com.github.kangarooxin.spring.boot.starter.swagger2;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author kangarooxin
@@ -16,11 +19,6 @@ public class Swagger2Properties {
      * 是否启用
      */
     private boolean enabled = true;
-
-    /**
-     * 多组文档
-     */
-    private String[] groups;
 
     /**
      * 文档组名
@@ -106,4 +104,9 @@ public class Swagger2Properties {
      * 公共参数
      */
     private List<Swagger2GlobalOperationParameter> globalParameters;
+
+    /**
+     * 多组文档
+     */
+    private Map<String, Swagger2Properties> groups = new LinkedHashMap<>();
 }

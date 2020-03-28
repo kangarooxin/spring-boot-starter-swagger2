@@ -26,7 +26,8 @@ public class Swagger2AutoConfiguration {
     private Swagger2Properties properties;
 
     @Bean
-    public Docket swagger2Docket() {
+    @ConditionalOnProperty(prefix = Constants.SWAGGER2_PREFIX, name = "base-package")
+    public Docket swagger2DefaultsDocket() {
         return Swagger2Utils.buildDocket(properties);
     }
 }
